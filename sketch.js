@@ -1,4 +1,5 @@
-var veryHungry = false;
+var eatRabbit = false;
+var death = false;
 
 function setup() {
 
@@ -12,7 +13,7 @@ function setup() {
   // All of your code goes under here
   
 
-  var story = 'Goldilocks has been lost in the woods for ' + many() + ' hours. Eventually she discovers a house, and smells something delicious. ' + delicious(); // Create the text
+  var story = 'The Big Bad Wolf is very hungry.' + food() + breath() + pig(); // Create the text
 
   printToPage(story); // Print the text to the webpage
 }
@@ -21,31 +22,47 @@ function setup() {
 
 // Put your functions below here:
 
-function many() {
-  let hours = Math.floor(random(1, 6)); // Random number rounded down
-  if(hours > 3) {
-    veryHungry = true;
+function food() {
+  let rabbit = Math.floor(random(1, 6)); // Random number rounded down
+  if(rabbit > 3) {
+    eatRabbit = true;
   }
-  return hours
+  if(eatRabbit == true) {
+    return "So the wolf decided to eat a rabbit";
+  } else {
+    
+    return "As he was deciding on what he wanted to eat, he noticed an easy to blow down straw house with a nice juicy pig inside";
+  }
+  
 }
 
-function delicious() {
-  if(veryHungry == true) {
-    return "Goldilocks is very hungry, so she goes inside."
-  } else {
-    let inspection = inspects();
-    return inspection;
+
+
+function breath() {
+  if(eatRabbit == false){
+    let breath = random(1, 6);
+    if(breath > 5) {
+      death = true;
+      return "The wolf walks up to the straw house, and he huffs, and puffs, and runs out of breath and dies."
+    } else {
+      return "The wolf walks up to the straw house, and he huffs, and puffs, and blows the house down."
+    }
   }
+  
 }
 
-function inspects() {
-  let insp = random(1, 6);
-  if(insp > 5) {
-    return "Goldilocks sees fresh bear tracks leaving the house!"
-  } else {
-    return "Goldilocks inspects the house and everything seems alright. She goes inside."
+function pig() {
+  if(eatRabbit == false && death == false){
+    let death = random(1, 6);
+    if(death > 5) {
+      return "The wolf walks up to the straw house, and he huffs, and puffs, and runs out of breath and dies."
+    } else {
+      return "The wolf walks up to the straw house, and he huffs, and puffs, and blows the house down."
+    }
   }
+  
 }
+
 
 
 //Don't delete this!
